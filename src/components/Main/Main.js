@@ -1,16 +1,23 @@
-import { useState } from 'react';
-import { Route, Switch } from 'react-router-dom';
-import './App.css';
+import React from 'react';
+import Promo from '../Promo/Promo';
+import AboutProject from '../AboutProject/AboutProject';
+import Techs from '../Techs/Techs';
+import AboutMe from '../AboutMe/AboutMe';
+import Portfolio from '../Portfolio/Portfolio';
+import NavTab from '../NavTab/NavTab'
 
-function App() {
-    const [loggedIn, setLoggedIn] = useState(false)
-  return (
-    <div className="page">
-      <header className="App-header">
-        
-      </header>
-    </div>
-  );
-}
+function Main() {
 
-export default App;
+    return (
+        <main className="main">
+            <Promo />
+            <NavTab />
+            <AboutProject />
+            <Techs />
+            <AboutMe />
+            <Portfolio />
+        </main>
+    )
+};
+
+export default Main;

@@ -1,16 +1,23 @@
-import { useState } from 'react';
-import { Route, Switch } from 'react-router-dom';
-import './App.css';
+import React from 'react';
+import StudentImage from '../../images/student.png';
 
-function App() {
-    const [loggedIn, setLoggedIn] = useState(false)
-  return (
-    <div className="page">
-      <header className="App-header">
-        
-      </header>
-    </div>
-  );
+function AboutMe() {
+
+    return (
+        <section className='about-me' id='aboutMe'>
+            <h2 className='title about-me__title'>Студент</h2>
+            <div className='about-me__container'>
+                <div className='about-me__content'>
+                    <h3 className='about-me__subtitle'>Виталий</h3>
+                    <p className='about-me__description'>Фронтенд-разработчик, 30 лет</p>
+                    <p className='about-me__text'>Я родился и живу в Саратове, закончил факультет экономики СГУ. У меня есть жена
+                        и дочь. Я люблю слушать музыку, а ещё увлекаюсь бегом. Недавно начал кодить. С 2015 года работал в компании «СКБ Контур». После того, как прошёл курс по веб-разработке, начал заниматься фриланс-заказами и ушёл с постоянной работы.</p>
+                    <a href='https://github.com/Vvyalov' target="_blank" rel="noopener noreferrer" className='link about-me__link'>Github</a>
+                </div>
+                <img src={StudentImage} alt='фото' className='about-me__image' />
+            </div>
+        </section>
+    )
 }
 
-export default App;
+export default AboutMe;

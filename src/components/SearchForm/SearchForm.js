@@ -1,16 +1,18 @@
-import { useState } from 'react';
-import { Route, Switch } from 'react-router-dom';
-import './App.css';
+import React from 'react';
+import FilterCheckbox from '../FilterCheckbox/FilterCheckbox';
 
-function App() {
-    const [loggedIn, setLoggedIn] = useState(false)
-  return (
-    <div className="page">
-      <header className="App-header">
-        
-      </header>
-    </div>
-  );
-}
+function SearchForm() {
 
-export default App;
+    return (
+        <section className='search-form'>
+            <form className='search-form__container-search'>
+                <input type='search' required className='search-form__input' placeholder='Фильм'></input>
+                <span className='search-form__input-decoration'></span>
+                <button type='submit' className='link search-form__button' />
+            </form>
+            <FilterCheckbox />
+        </section>
+    )
+};
+
+export default SearchForm;

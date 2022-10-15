@@ -1,16 +1,15 @@
-import { useState } from 'react';
-import { Route, Switch } from 'react-router-dom';
-import './App.css';
+import React from 'react';
+import SearchForm from '../SearchForm/SearchForm';
+import MoviesCardList from '../MoviesCardList/MoviesCardList';
 
-function App() {
-    const [loggedIn, setLoggedIn] = useState(false)
-  return (
-    <div className="page">
-      <header className="App-header">
-        
-      </header>
-    </div>
-  );
-}
+function SavedMovies() {
 
-export default App;
+    return (
+        <section className='saved-movies'>
+            <SearchForm />
+            <MoviesCardList />
+        </section>
+    )
+};
+
+export default SavedMovies;

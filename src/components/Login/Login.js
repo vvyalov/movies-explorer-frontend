@@ -1,16 +1,22 @@
-import { useState } from 'react';
-import { Route, Switch } from 'react-router-dom';
-import './App.css';
+import React from 'react';
+import { Link } from 'react-router-dom';
+import FormAuth from '../FormAuth/FormAuth';
 
-function App() {
-    const [loggedIn, setLoggedIn] = useState(false)
-  return (
-    <div className="page">
-      <header className="App-header">
-        
-      </header>
-    </div>
-  );
-}
+function Login() {
 
-export default App;
+    return (
+        <>
+            {<FormAuth isLogin={true} />}
+            <p className='login__another'>
+                Ещё не зарегистрированы?
+                <span>
+                    <Link to='/signup' className='link login__another__link'>
+                        Регистрация
+                    </Link>
+                </span>
+            </p>
+        </>
+    )
+};
+
+export default Login;

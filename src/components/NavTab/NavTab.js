@@ -1,16 +1,14 @@
-import { useState } from 'react';
-import { Route, Switch } from 'react-router-dom';
-import './App.css';
+import React from 'react';
 
-function App() {
-    const [loggedIn, setLoggedIn] = useState(false)
-  return (
-    <div className="page">
-      <header className="App-header">
-        
-      </header>
-    </div>
-  );
-}
+function NavTab() {
 
-export default App;
+    return (
+            <nav className='navtab__nav'>
+                <a href='#project' className='link navtab__link'>О проекте</a>
+                <a href='#techs' className='link navtab__link'>Технологии</a>
+                <a href='#aboutMe' className='link navtab__link'>Студент</a>
+            </nav>
+    )
+};
+
+export default NavTab;

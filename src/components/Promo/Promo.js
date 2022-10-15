@@ -1,16 +1,12 @@
-import { useState } from 'react';
-import { Route, Switch } from 'react-router-dom';
-import './App.css';
+import React from 'react';
 
-function App() {
-    const [loggedIn, setLoggedIn] = useState(false)
-  return (
-    <div className="page">
-      <header className="App-header">
-        
-      </header>
-    </div>
-  );
-}
+function Promo() {
 
-export default App;
+    return (
+        <section className="promo">
+            <h1 className='promo__title'>Учебный проект студента факультета Веб-разработки.</h1>
+        </section>
+    )
+};
+
+export default Promo;
