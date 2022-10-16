@@ -3,7 +3,6 @@ import MoviesCard from '../MoviesCard/MoviesCard';
 import firstFilm from '../../images/one-film.png';
 import secondFilm from '../../images/two-film.png';
 import thirdFilm from '../../images/three-film.png';
-import fourthFilm from '../../images/four-film.png';
 
 function MoviesCardList({ isNextMovie }) {
 
@@ -22,11 +21,6 @@ function MoviesCardList({ isNextMovie }) {
                 <MoviesCard
 					name="В погоне за Бенкси"
 					link={thirdFilm}
-					length="1ч 17м"
-				/>
-                <MoviesCard
-					name="Бег это свобода"
-					link={fourthFilm}
 					length="1ч 17м"
 				/>
             <div className='movie-card-list__next-movies'>

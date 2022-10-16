@@ -4,6 +4,7 @@
   display: flex;
   flex-direction: column;
   font-family: 'Inter', Arial, sans-serif;
+  background-color: #202020;
 }
 
 .content {
@@ -17,7 +18,8 @@
   letter-spacing: -0.88px;
   margin: 0;
   padding-bottom: 24px;
-  border-bottom: solid #000 1px;
+  color: #fff;
+  border-bottom: solid #dadada 1px;
 }
 
 .title__form {

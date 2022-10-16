@@ -8,6 +8,7 @@
 
 .profile__title {
     padding: 74px 0 123px;
+    color: #fff;
 }
 
 .profile__info {
@@ -25,6 +26,7 @@
     font-size: 11px;
     font-weight: 400;
     line-height: 1.2;
+    color: #fff;
 }
 
 .profile__info-description {
@@ -45,6 +47,7 @@
     padding: 0;
     font-weight: 400;
     padding-bottom: 17px;
+    color: #fff;
 }
 
 .profile__link-out-login {
