@@ -12,6 +12,7 @@ import NotFoundPage from '../NotFoundPage/NotFoundPage';
 
 function App() {
   const [loggedIn, setLoggedIn] = useState(false);
+  // const [isLiked, setIsLiked] = useState(false);
 
   return (
     <div className="page">

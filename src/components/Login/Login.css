@@ -1,4 +1,4 @@
-.login__another {
+.login__go-to-another {
     margin: 16px 0 0;
     color: #8B8B8B;
     font-size: 14px;
@@ -11,13 +11,13 @@
     align-items: flex-start;
 }
 
-.login__another__link {
+.login__go-to-another__link {
     color: #4285F4;
     padding-left: 6px;
 }
 
 @media screen and (max-width: 320px) {
-    .login__another {
+    .login__go-to-another {
         font-size: 12px;
     }
 }

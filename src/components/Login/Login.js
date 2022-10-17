@@ -7,10 +7,10 @@ function Login() {
     return (
         <>
             {<FormAuth isLogin={true} />}
-            <p className='login__another'>
+            <p className='login__go-to-another'>
                 Ещё не зарегистрированы?
                 <span>
-                    <Link to='/signup' className='link login__another__link'>
+                    <Link to='/signup' className='link login__go-to-another__link'>
                         Регистрация
                     </Link>
                 </span>

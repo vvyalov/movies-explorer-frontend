@@ -17,9 +17,9 @@ function Navigation({ loggedIn }) {
             {loggedIn ?
                 <>
                     <div className={`${isMenuBurgerOpen ? 'navigation__container-menu-burger' : 'navigation__container'}`} >
-                            <NavLink exact to='/' className='link navigation__link navigation__link-main' activeClassName='navigation__link_active'>Главная</NavLink>
-                            <NavLink to='/movies' className='link navigation__link navigation__link-auth' activeClassName='navigation__link_active'>Фильмы</NavLink>
-                            <NavLink to='/saved-movies' className='link navigation__link navigation__link-auth' activeClassName='navigation__link_active'>Сохранённые фильмы</NavLink>
+                        <NavLink exact to='/' className='link navigation__link navigation__link-main' activeClassName='navigation__link_active'>Главная</NavLink>
+                        <NavLink to='/movies' className='link navigation__link navigation__link-auth' activeClassName='navigation__link_active'>Фильмы</NavLink>
+                        <NavLink to='/saved-movies' className='link navigation__link navigation__link-auth' activeClassName='navigation__link_active'>Сохранённые фильмы</NavLink>
                         <Link to='/profile' className='link navigation__link navigation__link-account'>Аккаунт</Link>
                     </div>
                     <button className={`link navigation__menu-burger-button ${isMenuBurgerOpen ? 'navigation__menu-burger-button-close' : 'navigation__menu-burger-button-open'}`} onClick={handleMenuBurger} ></button>

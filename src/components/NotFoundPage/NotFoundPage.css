@@ -12,16 +12,14 @@
     font-size: 140px;
     font-weight: 400;
     line-height: 1.2;
-    color: #fff;
 }
 
-.not-found-page__text {
+.not-found-page__description {
     margin: 0;
     padding-top: 5px;
     font-size: 16px;
     font-weight: 400;
     line-height: 1.2;
-    color: #fff;
 }
 
 .not-found-page__link-to-back {
@@ -49,7 +47,7 @@
         font-size: 80px;
     }
 
-    .not-found-page__text{
+    .not-found-page__description {
         padding-top: 10px;
         font-size: 12px;
     }

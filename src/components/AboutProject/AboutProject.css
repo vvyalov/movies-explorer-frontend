@@ -1,9 +1,9 @@
 .about-project {
-    padding-top: 110px;
-    margin: 0 70px;
+    padding: 110px 70px 0 70px;
+    color: #fff;
 }
 
-.about-project__contant {
+.about-project__container {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 0 40px;
@@ -16,27 +16,24 @@
     letter-spacing: -0.8px;
     margin: 0;
     padding-top: 70px;
-    color: #fff;
 }
 
-.about-project__text{
+.about-project__description {
     font-size: 14px;
     font-weight: 400;
     line-height: 1.43;
     margin: 0;
     padding-top: 26px;
-    color: #fff;
 }
 
-.about-project__time {
+.about-project__tasks {
     display: grid;
     grid-template-columns: 1fr 4fr;
     align-items: center;
     justify-items: center;
 }
 
-.about-project__back-end {
-    background-color: #3DDC84;
+.about-project__task-time {
     font-size: 14px;
     font-weight: 400;
     line-height: 1.2;
@@ -48,18 +45,13 @@
     justify-content: center;
 }
 
-.about-project__front-end {
+.about-project__task-time-first-stage {
+    background-color: #3DDC84;
+    color: #000;
+}
+
+.about-project__task-time-second-stage {
     background-color: #303030;
-    color: #fff;
-    font-size: 14px;
-    font-weight: 400;
-    line-height: 1.2;
-    margin: 110px 0 0;
-    min-height: 36px;
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
 }
 
 .about-project__task {
@@ -76,27 +68,27 @@
         padding: 90px 20px 0;
     }
 
-    .about-project__contant {
+    .about-project__container {
         gap: 0 30px;
     }
 
-    .about-project__text {
+    .about-project__description {
         padding-top: 22px;
         font-size: 12px;
         line-height: 1.5;
     }
 
-    .about-project__time {
+    .about-project__task-time {
         margin-top: 93px;
     }
 }
 
 @media screen and (max-width: 500px) {
-    .about-project__time {
+    .about-project__tasks {
         grid-template-columns: 1fr 2fr;
     }
     
-    .about-project__contant {
+    .about-project__container {
         grid-template-columns: 1fr;
     }
 
@@ -106,13 +98,13 @@
         letter-spacing: -0.72px;
     }
 
-    .about-project__text {
+    .about-project__description {
         font-size: 11px;
         line-height: 1.45;
         padding-top: 19px;
     }
 
-    .about-project__text:first-of-type {
+    .about-project__description:first-of-type {
         grid-row-start: 2;
     }
 }
@@ -122,7 +114,7 @@
         padding: 70px 4px 0;
     }
 
-    .about-project__time {
+    .about-project__task-time {
         margin-top: 60px;
         font-size: 11px;
         min-height: 35px;

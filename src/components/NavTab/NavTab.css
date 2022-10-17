@@ -4,14 +4,16 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 66px;
     background-color: #272727;
+    height: 66px;
 }
 
-.navtab__link {
+.navtab__nav-link {
     display: flex;
     justify-content: center;
     align-items: center;
+    width: 96px;
+    height: 36px;
     color: #fff;
     font-size: 12px;
     font-weight: 500;
@@ -20,7 +22,7 @@
 }
 
 .navtab__nav-link:first-child {
-    margin-right: 0;
+    margin-left: 0;
 }
 
 @media screen and (max-width: 380px) {

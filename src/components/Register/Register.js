@@ -7,10 +7,10 @@ function Register() {
     return (
         <>
             {<FormAuth />}
-            <p className='register__another'>
+            <p className='register__go-to-another'>
                 Уже зарегистрированы?
                 <span>
-                    <Link to='/signin' className='link register__another__link'>
+                    <Link to='/signin' className='link register__go-to-another__link'>
                         Войти
                     </Link>
                 </span>

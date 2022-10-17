@@ -1,6 +1,7 @@
 .profile {
     height: calc(100vh - 74px);
-    padding: 0 70px 70px 70px;
+    color: #fff;
+    padding-bottom: 70px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -8,7 +9,6 @@
 
 .profile__title {
     padding: 74px 0 123px;
-    color: #fff;
 }
 
 .profile__info {
@@ -26,7 +26,6 @@
     font-size: 11px;
     font-weight: 400;
     line-height: 1.2;
-    color: #fff;
 }
 
 .profile__info-description {
@@ -46,14 +45,13 @@
     background: none;
     padding: 0;
     font-weight: 400;
-    padding-bottom: 17px;
     color: #fff;
+    padding-bottom: 17px;
 }
 
 .profile__link-out-login {
     font-weight: 500;
     color: #EE3465;
-    text-decoration: none;
     font-size: 13px;
     line-height: 1.2;
 }

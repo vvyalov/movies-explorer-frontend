@@ -7,7 +7,7 @@
     padding: 0 70px;
 }
 
-.header__auth {
+.header__authorization {
     min-width: 396px;
     padding: 20px 0 40px;
     margin: 0 auto;
@@ -17,9 +17,8 @@
     flex: 1;
 }
 
-.header__title {
+.header__title-register {
     padding-top: 40px;
-    color: #fff;
 }
 
 .logo {
@@ -28,7 +27,7 @@
 }
 
 @media screen and (max-width: 768px) {
-    .header__auth {
+    .header__authorization {
         padding-top: 20px;
         max-height: 379px;
         min-width: 51vw;
@@ -36,7 +35,7 @@
 }
 
 @media screen and (max-width: 320px) {
-    .header__auth {
+    .header__authorization {
         padding: 15px 0 10px;
         max-height: 253px;
         align-items: center;

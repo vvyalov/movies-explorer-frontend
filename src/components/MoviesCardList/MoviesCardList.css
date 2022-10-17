@@ -1,65 +1,77 @@
 .movie-card-list {
+    padding: 70px 70px 0 70px;
+    text-align: center;
+}
+
+.movie-card-list__movies {
     display: grid;
     grid-template-columns: repeat(3, 364px);
+    gap: 32px 30px;
     align-items: center;
     justify-content: center;
-    gap: 20px 38px;
-    margin-top: 70px;
     padding-bottom: 10px;
 }
 
-
-.movie-card-list__next-movies {
+.movie-card-list__open-next-movies {
+    box-sizing: border-box;
     min-height: 140px;
     padding-top: 50px;
 }
 
-.movie-card-list__next-movies-button {
-    margin-top: 50px;
-    width: 320px;
+.movie-card-list__open-next-movies-button {
+    width: 25vw;
     height: 36px;
-    background-color: #2f2f2f;
-    color: #fff;
+    background-color: #2F2F2F;
     border-radius: 6px;
     border: none;
     padding: 0;
     margin-bottom: 80px;
+    color: #fff;
     font-size: 12px;
     font-weight: 500;
     line-height: 1.2;
     text-align: center;
 }
 
-.movie-card-list__next-movies-button:hover {
+.movie-card-list__open-next-movies-button:hover {
     opacity: .6;
     cursor: pointer;
 }
 
 @media screen and (max-width: 768px) {
-
     .movie-card-list {
-        grid-template-columns: repeat(2, 1fr);
+        padding: 70px 30px 0 30px;
+        text-align: center;
+    }
+
+    .movie-card-list__movies {
+        grid-template-columns: repeat(2, 339px);
         gap: 35px 24px;
         padding-bottom: 30px;
     }
 
-    .movie-card-list__next-movies-button {
-        width: 320px;
+    .movie-card-list__open-next-movies-button {
+        width: 42vw;
     }
 }
 
 @media screen and (max-width: 500px) {
     .movie-card-list {
-        padding-top: 40px;
+        padding: 10px 10px 0 10px;
+        text-align: center;
     }
 
     .movie-card-list {
-        grid-template-columns: 1fr;
+        padding-top: 40px;
+    }
+
+    .movie-card-list__movies {
+        grid-template-columns: 300px;
         gap: 16px;
         margin: 0 -4px;
     }
 
-    .movie-card-list__next-movies-button {
-        width: 320;
+    .movie-card-list__open-next-movies-button {
+        width: 75vw;
     }
 }

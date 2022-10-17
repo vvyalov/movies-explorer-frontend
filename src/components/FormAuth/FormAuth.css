@@ -31,7 +31,7 @@
     padding: 15px;
     box-sizing: border-box;
     height: 46px;
-    background-color: #f9f9f9;
+    background-color: #2F2F2F;
     border-radius: 8px;
     border: none;
     outline: none;
@@ -47,7 +47,6 @@
 
 .form-auth__message-error {
     visibility: hidden;
-    margin-bottom: 69px;
     height: 12px;
     font-size: 10px;
     font-weight: 400;

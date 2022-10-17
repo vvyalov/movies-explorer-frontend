@@ -2,12 +2,12 @@ import React from 'react';
 import SearchForm from '../SearchForm/SearchForm';
 import MoviesCardList from '../MoviesCardList/MoviesCardList';
 
-function Movies({ nextMovie }) {
-    nextMovie = true;
+function Movies({ isNextMovie }) {
+    isNextMovie = true;
     return (
-        <section className='movies'>
+        <section className='content movies'>
             <SearchForm />
-            <MoviesCardList isNextMovie={nextMovie} />
+            <MoviesCardList isNextMovie={isNextMovie} />
         </section>
     )
 };

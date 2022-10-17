@@ -1,21 +1,15 @@
 .techs {
+    color: #fff;
+    padding: 100px 70px;
     margin-top: 110px;
     width: auto;
     background-color: #272727;
-    padding-bottom: 100px;
 }
 
-.techs__contant {
+.techs__container-text {
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 0 70px;
-}
-
-.techs__title {
-    margin: 0 70px 23px 70px;
-    padding-top: 100px;
-    border-bottom: solid #dadada 1px;
 }
 
 .techs__subtitle {
@@ -25,10 +19,9 @@
     line-height: 1.16;
     letter-spacing: -2px;
     text-align: center;
-    color: #fff;
 }
 
-.techs__text {
+.techs__description {
     margin: 25px 0 0;
     font-size: 14px;
     font-weight: 400;
@@ -36,12 +29,10 @@
     letter-spacing: -0.8px;
     max-width: 460px;
     text-align: center;
-    color: #fff;
 }
 
-.techs__project {
-    margin: 0;
-    margin-top: 100px;
+.techs__project-techs {
+    margin: 100px 20% 0;
     padding: 0;
     list-style: none;
     display: grid;
@@ -49,10 +40,10 @@
     grid-template-columns: repeat(7, minmax(max-content, 90px));
 }
 
-.techs__name {
+.techs__project-tech {
     width: 90px;
     padding: 21px 14px;
-    color: #fff;
+    box-sizing: border-box;
     background: #303030;
     border-radius: 10px;
     display: flex;
@@ -65,16 +56,16 @@
     letter-spacing: -0.56px;
 }
 
-.techs__name:first-child {
+.techs__project-tech:first-child {
     margin-left: 0;
 }
 
 @media screen and (max-width: 1090px) {
-    .techs__project {
+    .techs__project-techs {
         margin: 83px auto 0;
     }
 
-    .techs__name {
+    .techs__project-tech {
         font-size: 12px;
         letter-spacing: -0.48px;
     }
@@ -90,26 +81,26 @@
         margin-top: 80px;
     }
 
-    .techs__text {
+    .techs__description {
         font-size: 12px;
         line-height: 1.5;
         letter-spacing: -0.48px;
         margin-top: 22px;
     }
 
-    .techs__project {
+    .techs__project-techs {
         padding: 0 10px;
         margin: 83px 0 0;
         grid-template-columns: repeat(7, minmax(max-content, 84px));
     }
 
-    .techs__name {
+    .techs__project-tech {
         width: 84px;
     }
 }
 
 @media screen and (max-width: 700px) {
-    .techs__project {
+    .techs__project-techs {
         padding: 0 53px;
         margin: 50px 0 0;
         display: grid;
@@ -118,7 +109,7 @@
         justify-items: center;
     }
 
-    .techs__name {
+    .techs__project-tech {
         margin: 0;
     }
 }
@@ -127,6 +118,7 @@
     .techs {
         margin: 70px -14px 0;
         padding: 70px 18px;
+        background-color: #202020;
     }
 
     .techs__title {
@@ -141,7 +133,7 @@
         letter-spacing: -1.2px;
     }
 
-    .techs__text {
+    .techs__description {
         font-size: 11px;
         line-height: 1.45;
         letter-spacing: -0.44px;

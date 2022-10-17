@@ -1,20 +1,21 @@
-.navigation__container {
+.navigation {
     display: flex;
-    flex-direction: row;
-    justify-content: space-between;
     align-items: center;
 }
 
 .navigation__link {
-    font-weight: 500;
     font-size: 14px;
-    line-height: 18px;
-    text-decoration: none;
+    font-weight: 400;
+    line-height: 1.3;
     color: #fff;
 }
 
 .navigation__link_active {
     font-weight: 500;
+}
+
+.navigation__link-main {
+    visibility: hidden;
 }
 
 .navigation__link-auth {
@@ -26,9 +27,10 @@
 }
 
 .navigation__link-register {
+    font-size: 12px;
     font-weight: 500;
-    font-size: 14px;
-    line-height: 18px;
+    line-height: 1.3;
+    color: #fff;
 }
 
 .navigation__link-login {
@@ -38,7 +40,7 @@
     font-size: 12px;
     font-weight: 500;
     line-height: 1.3;
-    color: #fff;
+    color: #000;
     border-radius: 3px;
     background-color: #3DDC84;
     display: flex;
@@ -53,27 +55,20 @@
     align-items: center;
 }
 
-.navigation__link-main {
-    visibility: hidden;
-}
-
 .navigation__link-account::after {
     content: '';
     display: inline-block;
     margin-left: 13px;
-    border-radius: 50px;
-    background: url("../../images/header__nav-icon.svg");
-    background-position: center;
-    background-repeat: no-repeat;
-    background-color: #313131;
+    border-radius: 6px;
+    background: url("../../images/header__nav-icon.svg") #313131 center 10.38px no-repeat;
     width: 30px;
     height: 30px;
 }
 
 .navigation__menu-burger-button {
+    background: none;
     border: none;
     padding: 0;
-    background-color: #202020;
 }
 
 .navigation__menu-burger-button-open {
@@ -107,7 +102,7 @@
     width: 3px;
     height: 22px;
     position: absolute;
-    background-color: #000;
+    background-color: #fff;
     transform: rotate(45deg);
 }
 
@@ -116,7 +111,7 @@
     width: 3px;
     height: 22px;
     position: absolute;
-    background-color: #000;
+    background-color: #fff;
     transform: rotate(-45deg);
 
 }
@@ -220,7 +215,6 @@
     .navigation__menu-burger-button-open::before {
         width: 22px;
         height: 2.5px;
-        background-color: #fff;
         box-shadow:
             0 9px 0 0 #fff,
             0 -9px 0 0 #fff;
