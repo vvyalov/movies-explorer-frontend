@@ -25,4 +25,7 @@ body {
 @import './components/Register/Register.css';
 @import './components/SavedMovies/SavedMovies.css';
 @import './components/SearchForm/SearchForm.css';
-@import './components/Techs/Techs.css'
+@import './components/Techs/Techs.css';
+@import './components/BurgerButton/BurgerButton.css';
+@import './components/Popup/Popup.css';
+@import './components/RegAuthLinks/RegAuthLinks.css'

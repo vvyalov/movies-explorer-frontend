@@ -65,7 +65,7 @@
 }
 
 
-@media screen and (max-width: 768px) {
+@media screen and (min-width: 768px) and (max-width: 1279px) {
     .search-form {
         padding: 60px 0 56px;
         flex-direction: column;
@@ -78,10 +78,11 @@
 
     .search-form__container-search {
         padding-left: 18px;
+        width: 654px;
     }
 }
 
-@media screen and (max-width: 320px) {
+@media screen and (min-width: 320px) and (max-width: 767px) {
     .search-form {
         padding-bottom: 43px;
         margin: 0 -4px 10px;
@@ -93,6 +94,7 @@
 
     .search-form__container-search {
         padding-left: 16px;
+        width: 238px;
     }
 
 }

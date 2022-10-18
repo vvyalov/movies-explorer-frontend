@@ -22,7 +22,7 @@ function Portfolio() {
                     </a>
                 </li>
                 <li className='link portfolio__links-item'>
-                    <a href='https://vvyalov.github.io/react-mesto-auth' target="_blank" rel="noopener noreferrer" className='portfolio__link'>Одностраничное приложение
+                    <a href='https://github.com/vvyalov/react-mesto-auth' target="_blank" rel="noopener noreferrer" className='portfolio__link'>Одностраничное приложение
                         <span className='portfolio__link-span-icon'>
                             <img src={linkIcon} alt='Иконка для ссылки' className='portfolio__link-icon' />
                         </span>

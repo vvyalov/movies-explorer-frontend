@@ -1,12 +1,11 @@
 .promo {
     box-sizing: border-box;
-    margin: 20px -30px 0;
     min-height: 493px;
     background-color: #073042;
     background-image: url(../../images/pic__COLOR_landing-logo.png);
+    background-size: auto auto;
     background-repeat: no-repeat;
     background-position: center;
-    border-radius: 10px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -15,7 +14,8 @@
 
 .promo__title {
     max-width: 730px;
-    padding-top: 160px;
+    padding-top: 184px;
+    padding-bottom: 224px;
     margin: 0 auto;
     color: #fff;
     font-size: 50px;
@@ -25,10 +25,10 @@
     text-align: center;
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 768px) and (min-width: 1279px) {
     .promo {
-        margin: 20px -10px 0;
-        min-height: 834px;
+        margin: 20px  0;
+        max-height: 768px;
     }
 
     .promo__title {
@@ -40,17 +40,17 @@
     }
   }
 
-  @media screen and (max-width: 320px) {
+  @media screen and (max-width: 320px) and (min-width: 765px){
     .promo {
         margin: 14px -14px 0;
         min-height: 586px;
     }
 
     .promo__title {
-        width: 100%;
+        width: 300px;
         padding-top: 220px;
-        font-size: 29px;
-        line-height: 1.27;
-        letter-spacing: -1.16px;
+        font-weight: 400;
+        font-size: 31px;
+        line-height: 39px;
     }
   }

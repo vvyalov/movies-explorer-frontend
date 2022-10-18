@@ -5,7 +5,7 @@ function Profile() {
 
     return (
         <div className='content profile'>
-            <h1 className='title__form profile__title'>Привет, Виталий!</h1> {/* имя подставить из переменной */}
+            <h1 className='title__form profile__title'>Привет, Виталий!</h1>
             <ul className='profile__info'>
                 <li className='profile__info-item profile__info-name'><span className='profile__info-description'>Имя</span>Виталий</li>
                 <li className='profile__info-item profile__info-email'><span className='profile__info-description'>E-mail</span>pochta@yandex.ru</li>

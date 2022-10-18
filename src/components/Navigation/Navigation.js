@@ -1,37 +1,45 @@
-import React, { useState } from 'react';
-import { Link, NavLink } from 'react-router-dom';
+import React from 'react';
 
-function Navigation({ loggedIn }) {
-    const [isMenuBurgerOpen, setIsMenuBurgerOpen] = useState(false);
-    const handleMenuBurger = () => {
-        if (isMenuBurgerOpen === false) {
-            setIsMenuBurgerOpen(true);
-            return isMenuBurgerOpen;
-        }
-        setIsMenuBurgerOpen(false);
-    }
+import { Link } from 'react-router-dom';
 
-    loggedIn = true;
-    return (
-        <nav className='navigation'>
-            {loggedIn ?
-                <>
-                    <div className={`${isMenuBurgerOpen ? 'navigation__container-menu-burger' : 'navigation__container'}`} >
-                        <NavLink exact to='/' className='link navigation__link navigation__link-main' activeClassName='navigation__link_active'>Главная</NavLink>
-                        <NavLink to='/movies' className='link navigation__link navigation__link-auth' activeClassName='navigation__link_active'>Фильмы</NavLink>
-                        <NavLink to='/saved-movies' className='link navigation__link navigation__link-auth' activeClassName='navigation__link_active'>Сохранённые фильмы</NavLink>
-                        <Link to='/profile' className='link navigation__link navigation__link-account'>Аккаунт</Link>
-                    </div>
-                    <button className={`link navigation__menu-burger-button ${isMenuBurgerOpen ? 'navigation__menu-burger-button-close' : 'navigation__menu-burger-button-open'}`} onClick={handleMenuBurger} ></button>
-                </>
-                :
-                <>
-                    <Link to='/signup' className='link navigation__link-register'>Регистрация</Link>
-                    <Link to='/signin' className='link navigation__link-login'>Войти</Link>
-                </>
-            }
-        </nav >
-    )
-}
+function Navigation() {
+  return (
+    <nav className="nav">
+      <ul className="nav__links">
+        <li className="nav__links-item">
+          <Link
+            to="/"
+            className="nav__link nav__link_main"
+            >
+            Главная
+          </Link>
+        </li>
+        <li className="nav__links-item">
+          <Link
+            to="/movies"
+            className="nav__link nav__link_movies"
+          >
+          Фильмы
+          </Link>
+        </li>
+        <li className="nav__links-item">
+          <Link
+            to="/saved-movies"
+            className="nav__link nav__link_saved-movies"
+          >
+            Сохраненные фильмы
+          </Link>
+          
+        </li>
+      </ul>
+      <Link
+        to="/profile"
+        className="nav__link nav__link_profile"
+      >
+        Аккаунт
+      </Link>
+    </nav>
+  );
+};
 
 export default Navigation;

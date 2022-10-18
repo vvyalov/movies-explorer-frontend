@@ -31,7 +31,7 @@
 
 .movie-card__image {
     object-fit: cover;
-    width: 364px;
+    width: 100%;
     height: 203px;
 }
 
@@ -51,19 +51,15 @@
     background: url('../../images/movie-card__button-delete-icon.svg') #313131 center no-repeat;
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (min-width: 768px) {
     .movie-card {
         height: 309px;
     }
 
-    .movie-card__image {
-        width: 339px;
-        height: 190px;
-    }
-    
+
 }
 
-@media screen and (max-width: 320px) {
+@media screen and (min-width: 320px) {
     .movie-card {
         padding: 14px 0;
         height: 271px;
@@ -84,9 +80,6 @@
         line-height: 1.8;
     }
 
-    .movie-card__image {
-        height: 262px;
-    }
 
     .movie-card__button-save {
         margin-top: 14px;

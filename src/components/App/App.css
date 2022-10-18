@@ -5,16 +5,12 @@ body {
 
 .page {
   box-sizing: border-box;
-  min-height: 100vh;
   display: flex;
   flex-direction: column;
   font-family: 'Inter', Arial, sans-serif;
   margin: 0 auto;
 }
 
-.content {
-  flex: 1;
-}
 
 .title {
   font-size: 22px;
@@ -45,13 +41,13 @@ body {
   cursor: pointer;
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (min-width: 768px) {
   .page {
     padding: 0 30px;
   }
 }
 
-@media screen and (max-width: 320px) {
+@media screen and (min-width: 320px) {
   .page {
     padding: 0 14px;
   }

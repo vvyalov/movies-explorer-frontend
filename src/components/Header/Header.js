@@ -1,31 +1,42 @@
 import React from 'react';
-import { Switch, Route, Link } from 'react-router-dom';
-import logo from '../../images/logo.svg';
-import Navigation from '../Navigation/Navigation';
+import { Link, useLocation } from "react-router-dom";
 
-function Header({ loggedIn }) {
-    return (
-        <Switch>
-            <Route path='/signup'>
-                <header className="header header__authorization">
-                    <Link to='/'><img src={logo} alt="Логотип" className="link logo" /></Link>
-                    <h1 className='title__form header__title-register'>Добро пожаловать!</h1>
-                </header>
-            </Route>
-            <Route path='/signin'>
-                <header className="header header__authorization">
-                    <Link to='/'><img src={logo} alt="Логотип" className="link logo" /></Link>
-                    <h1 className='title__form header__title-register'>Рады видеть!</h1>
-                </header>
-            </Route>
-            <Route exact path={['/', '/movies', '/saved-movies', '/profile']}>
-                <header className="header">
-                    <Link to='/'><img src={logo} alt="Логотип" className="link logo" /></Link>
-                    <Navigation loggedIn={loggedIn} />
-                </header>
-            </Route>
-        </Switch>
-    )
-};
+import Navigation from '../Navigation/Navigation';
+import BurgerButton from '../BurgerButton/BurgerButton';
+import RegAuthLinks from '../RegAuthLinks/RegAuthLinks';
+
+import logo from '../../images/logo.svg';
+
+function Header({
+  loggedIn,
+  onButtonClick
+}) {  
+
+  const location = useLocation().pathname;
+  loggedIn = true
+
+  return (
+    <header className={`header${!loggedIn ? " header_theme_dark" : ""}`}>
+      <div className="header__content">
+        {(location !== '/') ? (
+          <Link to="/" className="header__logo-link">
+            <img className="header__logo" src={logo} alt="Movies Explorer" />
+          </Link>
+        ) : (
+          <img className="logo" src={logo} alt="Movies Explorer" />
+        )}
+        {loggedIn 
+          ? <>
+              <Navigation />
+              <BurgerButton
+                onButtonClick={ onButtonClick }
+              />
+            </>
+          : <RegAuthLinks />
+        }
+      </div>
+    </header>
+  );
+}
 
 export default Header;
