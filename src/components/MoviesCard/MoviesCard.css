@@ -6,8 +6,7 @@
 }
 
 .movie-card__info {
-    padding-top: 14px;
-    padding-bottom: 15px;
+    padding: 16px 16px 15px 16px;
     display: flex;
     justify-content: space-between;
 }
@@ -22,7 +21,9 @@
 
 .movie-card__length {
     margin: 0;
-    padding-top: 6px;
+    padding-bottom: 16px;
+    padding-left: 16px;
+    text-align: left;
     color: #A0A0A0;
     font-size: 13px;
     font-weight: 400;
@@ -56,17 +57,24 @@
         height: 309px;
     }
 
+    .movie-card__info {
+        padding: 14px 14px 15px 14px;
+    }
 
+    .movie-card__length {
+        padding-bottom: 14px;
+        padding-left: 14px;
+    }
+    
 }
 
 @media screen and (min-width: 320px) {
     .movie-card {
-        padding: 14px 0;
         height: 271px;
     }
 
     .movie-card__info {
-        padding: 0 14px 14px;
+        padding: 14px 14px 15px 14px;
     }
 
     .movie-card__title {
@@ -75,9 +83,10 @@
     }
     
     .movie-card__length {
-        margin-left: 22px;
+        padding-left: 14px;
         font-size: 10px;
         line-height: 1.8;
+        padding-bottom: 14px;
     }
 
 

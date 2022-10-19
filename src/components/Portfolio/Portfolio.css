@@ -68,7 +68,7 @@
     }    
 }
 
-@media screen and (max-width: 400px) {
+@media screen and (max-width: 200px) {
     .portfolio {
         padding: 70px 0;
     }
@@ -83,9 +83,9 @@
     }
 
     .portfolio__link {
+        font-weight: 400;
         font-size: 18px;
-        line-height: 1.56;
-        letter-spacing: -0.72px;
+        line-height: 28px;
     }
 
     .portfolio__link-span-icon {

@@ -82,7 +82,18 @@
     }
 }
 
-@media screen and (min-width: 320px) and (max-width: 767px) {
+@media screen and (min-width: 520px) and (max-width: 767px) {
+    .search {
+        width: 600px;
+    }
+
+    .search-form__container-search {
+        padding-left: 18px;
+        width: 500px;
+    }
+}
+
+@media screen and (min-width: 200px) and (max-width: 520px) {
     .search-form {
         padding-bottom: 43px;
         margin: 0 -4px 10px;

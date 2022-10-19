@@ -55,7 +55,7 @@
     }
 }
 
-@media screen and (min-width: 300px) and (max-width: 767px) {
+@media screen and (min-width: 230px) and (max-width: 767px) {
     .movie-card-list {
         padding: 10px 10px 0 10px;
         text-align: center;
