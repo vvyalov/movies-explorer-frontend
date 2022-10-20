@@ -1,0 +1,31 @@
+body {
+  margin: 0
+}
+
+@import './vendor/normalize.css';
+@import './vendor/font.css';
+@import './components/App/App.css';
+@import './components/AboutMe/AboutMe.css';
+@import './components/AboutProject/AboutProject.css';
+@import './components/FilterCheckbox/FilterCheckbox.css';
+@import './components/Footer/Footer.css';
+@import './components/FormAuth/FormAuth.css';
+@import './components/Header/Header.css';
+@import './components/Login/Login.css';
+@import './components/Main/Main.css';
+@import './components/Movies/Movies.css';
+@import './components/MoviesCard/MoviesCard.css';
+@import './components/MoviesCardList/MoviesCardList.css';
+@import './components/Navigation/Navigation.css';
+@import './components/NavTab/NavTab.css';
+@import './components/Portfolio/Portfolio.css';
+@import './components/Preloader/Preloader.css';
+@import './components/Profile/Profile.css';
+@import './components/Promo/Promo.css';
+@import './components/Register/Register.css';
+@import './components/SavedMovies/SavedMovies.css';
+@import './components/SearchForm/SearchForm.css';
+@import './components/Techs/Techs.css';
+@import './components/BurgerButton/BurgerButton.css';
+@import './components/Popup/Popup.css';
+@import './components/RegAuthLinks/RegAuthLinks.css'
