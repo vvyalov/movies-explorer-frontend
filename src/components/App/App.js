@@ -1,7 +1,7 @@
 import React, { useState, useEffect  } from 'react';
 import { Route, Switch, useHistory } from 'react-router-dom';
 import { getAllMovies } from '../../utils/MoviesApi';
-import { addMovie, register, login, outLogin, getUser, updateUser, getSavedMovies, deleteSavedMovies } from '../../utils/MainApi';
+import { mainApi } from '../../utils/MainApi';
 import { CurrentUserContext } from '../../contexts/CurrentUserContext'
 import Main from '../Main/Main';
 import Movies from '../Movies/Movies';
@@ -31,7 +31,7 @@ function App() {
   const [isUpdateDone, setIsUpdateDone] = useState(false);
 
   useEffect(() => {
-    getUser()
+    mainApi.getUser()
       .then((userData) => {
         if (userData) {
           setLoggedIn(true);
@@ -44,7 +44,7 @@ function App() {
 
   useEffect(() => {
     if (loggedIn) {
-      Promise.all([getUser(), getSavedMovies()])
+      Promise.all([mainApi.getUser(), mainApi.getSavedMovies()])
         .then(([userData, dataSavedMovies]) => {
           console.log(loggedIn, currentUser)
           if (userData) {
@@ -120,7 +120,7 @@ function App() {
 
   const handleSaveMovieClick = (movie) => {
     if (!moviesSaved.some(i => i.movieId === movie.movieId)) {
-      addMovie(movie)
+      mainApi.addMovie(movie)
         .then((movieCard) => {
           setMoviesSaved([movieCard, ...moviesSaved])
         })
@@ -132,7 +132,7 @@ function App() {
 
   const handleDeleteSavedMovie = (movie) => {
     const movieDeleted = moviesSaved.find((m) => m.movieId === movie.movieId);
-    deleteSavedMovies(movieDeleted._id)
+    mainApi.deleteSavedMovies(movieDeleted._id)
       .then(() => {
         setMoviesSaved((state) => state.filter((m) => m._id !== movieDeleted._id));
       })
@@ -142,7 +142,7 @@ function App() {
   };
 
   const handleRegister = ({ name, email, password }) => {
-    register({ name, email, password })
+    mainApi.register({ name, email, password })
       .then((dataUser) => {
         if (dataUser) {
           console.log(dataUser)
@@ -156,7 +156,7 @@ function App() {
   };
 
   const handleLogin = ({ email, password }) => {
-    login({ email, password })
+    mainApi.login({ email, password })
       .then((data) => {
         if (data) {
           setLoggedIn(true);
@@ -170,7 +170,7 @@ function App() {
   };
 
   const handleSignOut = () => {
-    outLogin()
+    mainApi.outLogin()
       .then((message) => {
         console.log(message);
         setLoggedIn(false);
@@ -187,7 +187,7 @@ function App() {
   };
 
   const handleProfileUpdate = ({ name, email }) => {
-    updateUser({ name, email })
+    mainApi.updateUser({ name, email })
       .then((newUserData) => {
         setCurrentUser(newUserData);
         setIsUpdateDone(true);

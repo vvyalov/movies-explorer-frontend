@@ -1,6 +1,10 @@
-export const BASE_URL = 'http://api.vyalov.nomorepartiesxyz.ru';
+class MainApi{
 
-const CheckResponse = (res) => {
+    constructor(options) {
+		this._baseUrl = options.baseUrl;
+		this._headers = options.headers;
+	}
+    _checkResponse = (res) => {
   if (res.ok) {
       return res.json();
   }
@@ -9,57 +13,45 @@ const CheckResponse = (res) => {
   }
 }
 
-export const register = ({ name, email, password }) => {
-  return fetch(`${BASE_URL}/signup`, {
+ register = ({ name, email, password }) => {
+  return fetch(`${this._baseUrl}/signup`, {
       method: 'POST',
-      headers: {
-          "access-control-request-headers": "http://vyalov.movie.nomorepartiesxyz.ru",
-          "Content-Type": "application/json"
-      },
+      headers: this._headers,
       body: JSON.stringify({ name, email, password })
   })
-      .then(CheckResponse)
+      .then(this._checkResponse)
 }
 
-export const login = ({ email, password }) => {
-  return fetch(`${BASE_URL}/signin`, {
+ login = ({ email, password }) => {
+  return fetch(`${this._baseUrl}/signin`, {
       method: 'POST',
       credentials: 'include',
-      headers: {
-          "access-control-request-headers": "http://vyalov.movie.nomorepartiesxyz.ru",
-          "Content-Type": "application/json"
-      },
+      headers: this._headers,
       body: JSON.stringify({ email, password })
   })
-      .then(CheckResponse)
+      .then(this._checkResponse)
 }
 
-export const outLogin = () => {
-  return fetch(`${BASE_URL}/signout`, {
+     outLogin = () => {
+  return fetch(`${this._baseUrl}/signout`, {
       method: 'GET',
       credentials: 'include',
-      headers: {
-          "access-control-request-headers": "http://vyalov.movie.nomorepartiesxyz.ru",
-          "Content-Type": "application/json"
-      }
+      headers: this._headers,
   })
-      .then(CheckResponse)
+      .then(this._checkResponse)
 }
 
-export const getUser = () => {
-  return fetch(`${BASE_URL}/users/me`, {
+     getUser = () => {
+  return fetch(`${this._baseUrl}/users/me`, {
       method: 'GET',
       credentials: 'include',
-      headers: {
-          "access-control-request-headers": "http://vyalov.movie.nomorepartiesxyz.ru",
-          "Content-Type": "application/json"
-      }
+      headers: this._headers,
   })
-      .then(CheckResponse)
+      .then(this._checkResponse)
 }
 
-export const updateUser = ({ name, email }) => {
-  return fetch(`${BASE_URL}/users/me`, {
+     updateUser = ({ name, email }) => {
+  return fetch(`${this._baseUrl}/users/me`, {
       method: 'PATCH',
       credentials: 'include',
       headers: {
@@ -71,10 +63,10 @@ export const updateUser = ({ name, email }) => {
           email
       })
   })
-      .then(CheckResponse)
+      .then(this._checkResponse)
 }
 
-export const addMovie = (movie) => {
+     addMovie = (movie) => {
   const {
       country,
       director,
@@ -88,13 +80,10 @@ export const addMovie = (movie) => {
       thumbnail,
       movieId,
   } = movie;
-  return fetch(`${BASE_URL}/movies`, {
+  return fetch(`${this._baseUrl}/movies`, {
       method: 'POST',
       credentials: 'include',
-      headers: {
-          'access-control-request-headers': 'http://vyalov.movie.nomorepartiesxyz.ru/',
-          'Content-Type': 'application/json'
-      },
+      headers: this._headers,
       body: JSON.stringify({
           country,
           director,
@@ -109,29 +98,31 @@ export const addMovie = (movie) => {
           movieId,
       })
   })
-      .then(CheckResponse)
+      .then(this._checkResponse)
 };
 
-export const getSavedMovies = () => {
-  return fetch(`${BASE_URL}/movies`, {
+     getSavedMovies = () => {
+  return fetch(`${this._baseUrl}/movies`, {
       method: 'GET',
       credentials: 'include',
-      headers: {
-          "access-control-request-headers": "http://vyalov.movie.nomorepartiesxyz.ru/",
-          "Content-Type": "application/json"
-      }
+      headers: this._headers,
   })
-      .then(CheckResponse)
+      .then(this._checkResponse)
 }
 
-export const deleteSavedMovies = (movieDeleteId) => {
-  return fetch(`${BASE_URL}/movies/${movieDeleteId}`, {
+     deleteSavedMovies = (movieDeleteId) => {
+  return fetch(`${this._baseUrl}/movies/${movieDeleteId}`, {
       method: 'DELETE',
       credentials: 'include',
-      headers: {
-          "access-control-request-headers": "http://vyalov.movie.nomorepartiesxyz.ru/",
-          "Content-Type": "application/json"
-      }
+      headers: this._headers,
   })
-      .then(CheckResponse)
-}
+      .then(this._checkResponse)
+}}
+
+export const mainApi = new MainApi({
+	baseUrl: 'http://api.vyalov.nomorepartiesxyz.ru',
+	headers: {
+        "access-control-request-headers": "http://vyalov.movie.nomorepartiesxyz.ru/",
+		"Content-Type": 'application/json',
+	},
+});
