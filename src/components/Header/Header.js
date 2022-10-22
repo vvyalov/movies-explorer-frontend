@@ -13,7 +13,6 @@ function Header({
 }) {  
 
   const location = useLocation().pathname;
-  loggedIn = false
 
   return (
     <header className={`header${!loggedIn ? " header_theme_dark" : ""}`}>
