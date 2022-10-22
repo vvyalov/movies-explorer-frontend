@@ -1,5 +1,5 @@
 import React, { useState, useEffect  } from 'react';
-import { Route, Switch, useHistory } from 'react-router-dom';
+import { Route, Switch, useHistory, useRouteMatch } from 'react-router-dom';
 import { getAllMovies } from '../../utils/MoviesApi';
 import { mainApi } from '../../utils/MainApi';
 import { CurrentUserContext } from '../../contexts/CurrentUserContext'
@@ -29,6 +29,11 @@ function App() {
   const [isErrorResposeRegister, setIsErrorResponseRegister] = useState(null);
   const [moviesSaved, setMoviesSaved] = useState([]);
   const [isUpdateDone, setIsUpdateDone] = useState(false);
+  const noHeaderShown = [
+		'/signin',
+		'/signup',
+		'/404',
+	];
 
   useEffect(() => {
     mainApi.getUser()
@@ -204,7 +209,9 @@ function App() {
   return (
     <div className="page">
       <CurrentUserContext.Provider value={currentUser}>
-      <Header loggedIn={loggedIn} onButtonClick={handleBurgerButtonClick}/>
+      {useRouteMatch(noHeaderShown)
+					? null
+					: (<Header loggedIn={loggedIn} onButtonClick={handleBurgerButtonClick}/>)}
       <Popup isOpened={isPopupOpened} onButtonClick={closePopup}/>
       <Switch>
         <Route exact path="/">
