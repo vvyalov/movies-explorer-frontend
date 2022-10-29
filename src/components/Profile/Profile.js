@@ -1,10 +1,9 @@
-import React, {useContext, useState, useEffect, useCallback} from 'react';
+import React, { useContext, useState, useEffect, useCallback } from 'react';
+import validator from 'validator';
+import { CurrentUserContext } from '../../contexts/CurrentUserContext';
 import { Link } from 'react-router-dom';
-import { isEmail } from 'validator';
-import { CurrentUserContext } from '../../contexts/CurrentUserContext'
 
 function Profile({ onOutLogin, onProfileUpdate, isUpdateDone }) {
-
     const currentUser = useContext(CurrentUserContext);
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
@@ -32,7 +31,7 @@ function Profile({ onOutLogin, onProfileUpdate, isUpdateDone }) {
                 const isUserNameFilled = name.length > 2 && name.length < 30;
                 const isUserNameValid = isUserNameFilled;
 
-                const isUserEmailFilled = isEmail(email);
+                const isUserEmailFilled = validator.isEmail(email);
                 const isUserEmailValid = isUserEmailFilled;
 
                 setFormValidity((prevState) => ({
@@ -55,22 +54,22 @@ function Profile({ onOutLogin, onProfileUpdate, isUpdateDone }) {
 
     return (
         <form className='content profile' onSubmit={handleProfileUpdate}>
-        <h1 className='title__form profile__title'>Привет, {currentUser.name}</h1>
-        <div className='profile__info'>
-            <label className='profile__info-label'>Имя
-                <input className={`profile__info-input profile__info-name ${!nameValid && 'profile__input-error'}`} required type={'text'} name={name} value={name} onChange={changeNameProfile} />
-                <span className='profile__info-input-decoration'></span>
-            </label>
-            <label className='profile__info-label'>E-mail
-                <input className={`profile__info-input profile__info-email ${!emailValid && 'profile__input-error'}`} required type={'text'} name={email} value={email} onChange={changeEmailProfile} />
-                <span className='profile__info-input-decoration'></span>
-            </label>
-            <div className={`message-error profile__message-error ${!profileFormValidity && 'message-error-visible'}`}>Что-то пошло не так...</div>
-            <div className={`${isUpdateDone && 'profile__message-update-done-visible'} profile__message-update-done`}>профиль успешно обновлен</div>
-        </div>
-        <button type="submit" className='link profile__button-edit' disabled={buttonDisabled}>{buttonDisabled ? 'Редактировать' : 'Сохранить'}</button>
-        <Link to='/signin' className='link profile__link-out-login' onClick={onOutLogin}>Выйти из аккаунта</Link>
-    </form>
+            <h1 className='title__form profile__title'>Привет, {currentUser.name}</h1>
+            <div className='profile__info'>
+                <label className='profile__info-label'>Имя
+                    <input className={`profile__info-input profile__info-name ${!nameValid && 'profile__input-error'}`} required type='text' name="name" value={name|| "" } onChange={changeNameProfile} />
+                    <span className='profile__info-input-decoration'></span>
+                </label>
+                <label className='profile__info-label'>E-mail
+                    <input className={`profile__info-input profile__info-email ${!emailValid && 'profile__input-error'}`} required type='text' name="email" value={email || ""} onChange={changeEmailProfile} />
+                    <span className='profile__info-input-decoration'></span>
+                </label>
+                <div className={`message-error profile__message-error ${!profileFormValidity && 'message-error-visible'}`}>Что-то пошло не так...</div>
+                <div className={`${isUpdateDone && 'profile__message-update-done-visible'} profile__message-update-done`}>профиль успешно обновлен</div>
+            </div>
+            <button type="submit" className='link profile__button-edit' disabled={buttonDisabled}>{buttonDisabled ? 'Редактировать' : 'Сохранить'}</button>
+            <Link to='/signin' className='link profile__link-out-login' onClick={onOutLogin}>Выйти из аккаунта</Link>
+        </form>
     )
 };
 

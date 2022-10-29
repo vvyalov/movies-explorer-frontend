@@ -12,7 +12,7 @@ export const getAllMovies = () => {
     return fetch(`${BASE_URL}`, {
         method: 'GET',
         headers: {
-            "Content-Type": "application/json"
+            "Content-Type": "application/json",
         }
     })
         .then(CheckResponse)

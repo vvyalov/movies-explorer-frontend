@@ -16,7 +16,7 @@ import NotFoundPage from '../NotFoundPage/NotFoundPage';
 import ProtectedRoute from '../ProtectedRoute';
 
 function App() {
-    const history = useHistory();
+  const history = useHistory();
   const [currentUser, setCurrentUser] = useState({});
   const [isPopupOpened, setIsPopupOpened] = React.useState(false);
   const [loggedIn, setLoggedIn] = useState(false);

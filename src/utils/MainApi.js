@@ -54,10 +54,7 @@ class MainApi{
   return fetch(`${this._baseUrl}/users/me`, {
       method: 'PATCH',
       credentials: 'include',
-      headers: {
-          "access-control-request-headers": "http://vyalov.movie.nomorepartiesxyz.ru",
-          "Content-Type": "application/json"
-      },
+      headers: this._headers,
       body: JSON.stringify({
           name,
           email
@@ -120,9 +117,9 @@ class MainApi{
 }}
 
 export const mainApi = new MainApi({
-	baseUrl: 'http://api.vyalov.nomorepartiesxyz.ru',
+	baseUrl: 'https://api.vyalov.nomorepartiesxyz.ru',
 	headers: {
-        "access-control-request-headers": "http://vyalov.movie.nomorepartiesxyz.ru/",
+        "access-control-request-headers": "https://vyalov.movie.nomorepartiesxyz.ru/",
 		"Content-Type": 'application/json',
 	},
 });
