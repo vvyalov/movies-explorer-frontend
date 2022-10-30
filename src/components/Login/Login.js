@@ -1,6 +1,6 @@
 import React, { useState, useCallback, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import {isEmail} from 'validator';
+import validator from 'validator';
 import FormAuth from '../FormAuth/FormAuth';
 
 function Login({ onLogin, formErrorMessage }) {
@@ -25,7 +25,7 @@ function Login({ onLogin, formErrorMessage }) {
 
     useEffect(
         function validateInputs() {
-            const isUserEmailFilled = isEmail(formUserData.userEmail);
+            const isUserEmailFilled = validator.isEmail(formUserData.userEmail);
             const isUserEmailValid = isUserEmailFilled;
 
             const isUserPasswordFilled = formUserData.userPassword;

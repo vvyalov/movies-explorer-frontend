@@ -54,7 +54,7 @@ function Profile({ onOutLogin, onProfileUpdate, isUpdateDone }) {
 
     return (
         <form className='content profile' onSubmit={handleProfileUpdate}>
-            <h1 className='title__form profile__title'>Привет, {currentUser.name}</h1>
+            <h1 className='title__form profile__title'>Привет, {currentUser.name || 'username'}</h1>
             <div className='profile__info'>
                 <label className='profile__info-label'>Имя
                     <input className={`profile__info-input profile__info-name ${!nameValid && 'profile__input-error'}`} required type='text' name="name" value={name|| "" } onChange={changeNameProfile} />

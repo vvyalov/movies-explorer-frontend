@@ -1,7 +1,7 @@
 import React, {useState, useCallback, useEffect} from 'react';
 import { Link } from 'react-router-dom';
 import FormAuth from '../FormAuth/FormAuth';
-import {isEmail} from 'validator';
+import validator from 'validator';
 
 function Register({ onRegister, isErrorResponse }) {
     const [formUserData, setFormUserData] = useState({
@@ -28,7 +28,7 @@ function Register({ onRegister, isErrorResponse }) {
             const isUserNameFilled = formUserData.userName.length > 2 && formUserData.userName.length < 30;
             const isUserNameValid = isUserNameFilled;
 
-            const isUserEmailFilled = isEmail(formUserData.userEmail);
+            const isUserEmailFilled = validator.isEmail(formUserData.userEmail);
             const isUserEmailValid = isUserEmailFilled;
 
             const isUserPasswordFilled = formUserData.userPassword;

@@ -17,9 +17,9 @@ import ProtectedRoute from '../ProtectedRoute';
 
 function App() {
   const history = useHistory();
-  const [currentUser, setCurrentUser] = useState({});
+  const [currentUser, setCurrentUser] = useState({ name: '', email: '', _id: '' });
   const [isPopupOpened, setIsPopupOpened] = React.useState(false);
-  const [loggedIn, setLoggedIn] = useState(false);
+  const [loggedIn, setLoggedIn] = useState(null);
   const [allMovies, setAllMovies] = useState([]);
   const [searchStringStorage, setSearchStringStorage] = useState('');
   const [isFilterCheckbox, setIsFilterCheckbox] = useState(false);
@@ -162,12 +162,12 @@ function App() {
 
   const handleLogin = ({ email, password }) => {
     mainApi.login({ email, password })
-      .then((data) => {
-        if (data) {
+      .then((res) => {
+          localStorage.setItem('jwt', res.token);
           setLoggedIn(true);
           history.push('/movies');
-        }
       })
+      
       .catch((err => {
         console.log(err);
         setIsErrorResponse(err);
