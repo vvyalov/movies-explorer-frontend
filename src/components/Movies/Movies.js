@@ -7,7 +7,7 @@ function Movies({ movies,
     notFirstSearch,
     handleSaveAllMovies,
     moviesSaved,
-    onSaveMovieClick,
+    onLikeMovieClick,
     onChangeFilterCheckbox,
     onSearshStringChange,
     isFilterCheckbox,
@@ -52,7 +52,7 @@ function Movies({ movies,
                 movies={moviesElements}
                 moviesSaved={moviesSaved}
                 keyMovie={'movieId'}
-                onSaveMovieClick={onSaveMovieClick}
+                onLikeMovieClick={onLikeMovieClick}
                 isPreloader={isPreloader}
                 isNotFoundMovies={isNotFoundMovies}
                 isErrorSearchMovies={isErrorSearchMovies}

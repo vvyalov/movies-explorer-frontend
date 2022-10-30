@@ -63,40 +63,14 @@ class MainApi {
             .then(this._checkResponse)
     }
 
-    addMovie = (movie) => {
-        const {
-            country,
-            director,
-            duration,
-            year,
-            description,
-            image,
-            trailerLink,
-            nameRU,
-            nameEN,
-            thumbnail,
-            movieId,
-        } = movie;
-        return fetch(`${this._baseUrl}/movies`, {
-            method: 'POST',
-            credentials: 'include',
-            headers: this._headers,
-            body: JSON.stringify({
-                country,
-                director,
-                duration,
-                year,
-                description,
-                image,
-                trailerLink,
-                nameRU,
-                nameEN,
-                thumbnail,
-                movieId,
-            })
-        })
-            .then(this._checkResponse)
-    };
+    getMovies() {
+		return fetch(`${this._baseUrl}/movies`, {
+			method: 'GET',
+			headers: {
+				...this.headers,
+			},
+		}).then(this._checkServerStatus);
+	}
 
     getSavedMovies = () => {
         return fetch(`${this._baseUrl}/movies`, {

@@ -2,7 +2,7 @@ import React, {  useEffect, useState} from 'react';
 import MoviesCard from '../MoviesCard/MoviesCard';
 import Preloader from '../Preloader/Preloader'
 
-function MoviesCardList({ movies, moviesSaved, keyMovie, onSaveMovieClick, isPreloader, isNotFoundMovies, isErrorSearchMovies, isDelete, onDeleteClick }) {
+function MoviesCardList({ movies, moviesSaved, keyMovie, onLikeMovieClick, isPreloader, isNotFoundMovies, isErrorSearchMovies, isDelete, onDeleteClick }) {
 
     const [showMovies, setShowMovies] = useState(movies);
     const [addNextMovies, setAddNextMovies] = useState(0);
@@ -50,7 +50,7 @@ function MoviesCardList({ movies, moviesSaved, keyMovie, onSaveMovieClick, isPre
         <MoviesCard
             movie={movie}
             moviesSaved={moviesSaved}
-            onSaveMovieClick={onSaveMovieClick}
+            onLikeMovieClick={onLikeMovieClick}
             key={movie[keyMovie]}
             isDelete={isDelete}
             onDeleteClick={onDeleteClick} />

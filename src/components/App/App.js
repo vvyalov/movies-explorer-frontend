@@ -46,7 +46,7 @@ function App() {
         console.log(err);
       });
   }, [loggedIn, currentUser]);
-
+  
   useEffect(() => {
     if (loggedIn) {
       Promise.all([mainApi.getUser(), mainApi.getSavedMovies()])
@@ -123,9 +123,9 @@ function App() {
       });
   };
 
-  const handleSaveMovieClick = (movie) => {
+  const handlelikeMovie = (movie) => {
     if (!moviesSaved.some(i => i.movieId === movie.movieId)) {
-      mainApi.addMovie(movie)
+      mainApi.getMovies(movie)
         .then((movieCard) => {
           setMoviesSaved([movieCard, ...moviesSaved])
         })
@@ -135,7 +135,7 @@ function App() {
     }
   };
 
-  const handleDeleteSavedMovie = (movie) => {
+  const handleDeletelike = (movie) => {
     const movieDeleted = moviesSaved.find((m) => m.movieId === movie.movieId);
     mainApi.deleteSavedMovies(movieDeleted._id)
       .then(() => {
@@ -224,20 +224,20 @@ function App() {
             notFirstSearch={notFirstSearch}
             handleSaveAllMovies={handleSaveAllMovies}
             moviesSaved={moviesSaved}
-            onSaveMovieClick={handleSaveMovieClick}
+            onLikeMovieClick={handlelikeMovie}
             onChangeFilterCheckbox={handleFilterCheckbox}
             onSearshStringChange={handleSearshStringChange}
             searchStringStorage={searchStringStorage}
             isFilterCheckbox={filterCheckbox}
             isErrorSearchMovies={isErrorSearchMovies}
-            onDeleteClick={handleDeleteSavedMovie}/>
+            onDeleteClick={handleDeletelike}/>
         <ProtectedRoute path="/saved-movies"
             loggedIn={loggedIn}
             component={SavedMovies}
             movies={moviesSaved}
             moviesSaved={moviesSaved}
             onSearshStringChange={handleSearshStringChange}
-            onDeleteClick={handleDeleteSavedMovie}
+            onDeleteClick={handleDeletelike}
             isErrorSearchMovies={isErrorSearchMovies}
          />
         <ProtectedRoute path="/profile"
