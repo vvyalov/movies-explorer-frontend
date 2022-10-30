@@ -18,14 +18,14 @@ import ProtectedRoute from '../ProtectedRoute';
 function App() {
   const history = useHistory();
   const [currentUser, setCurrentUser] = useState({ name: '', email: '', _id: '' });
-  const [isPopupOpened, setIsPopupOpened] = React.useState(false);
+  const [popupOpen, setPopupOpen] = React.useState(false);
   const [loggedIn, setLoggedIn] = useState(null);
   const [allMovies, setAllMovies] = useState([]);
   const [searchStringStorage, setSearchStringStorage] = useState('');
-  const [isFilterCheckbox, setIsFilterCheckbox] = useState(false);
+  const [filterCheckbox, setFilterCheckbox] = useState(false);
   const [notFirstSearch, setNotFirstSearch] = useState(false);
   const [isErrorSearchMovies, setIsErrorSearchMovies] = useState(false);
-  const [isErrorRespose, setIsErrorResponse] = useState(null);
+  const [errorRespose, setErrorResponse] = useState(null);
   const [isErrorResposeRegister, setIsErrorResponseRegister] = useState(null);
   const [moviesSaved, setMoviesSaved] = useState([]);
   const [isUpdateDone, setIsUpdateDone] = useState(false);
@@ -72,12 +72,12 @@ function App() {
     } else {
       setAllMovies(JSON.parse(localStorage.searchMoviesData));
       setSearchStringStorage(JSON.parse(localStorage.searchString));
-      setIsFilterCheckbox(JSON.parse(localStorage.searchFilterCheckbox));
+      setFilterCheckbox(JSON.parse(localStorage.searchFilterCheckbox));
     }
   }, []);
 
   const handleFilterCheckbox = (isChecked) => {
-    setIsFilterCheckbox(isChecked);
+    setFilterCheckbox(isChecked);
     localStorage.setItem('searchFilterCheckbox', JSON.stringify(isChecked));
   };
 
@@ -87,11 +87,11 @@ function App() {
   };
 
   function handleBurgerButtonClick() {
-    setIsPopupOpened(true);
+    setPopupOpen(true);
   }
 
   function closePopup() {
-    setIsPopupOpened(false);
+    setPopupOpen(false);
   }
 
   const handleSaveAllMovies = () => {
@@ -170,7 +170,7 @@ function App() {
       
       .catch((err => {
         console.log(err);
-        setIsErrorResponse(err);
+        setErrorResponse(err);
       }))
   };
 
@@ -212,7 +212,7 @@ function App() {
       {useRouteMatch(noHeaderShown)
 					? null
 					: (<Header loggedIn={loggedIn} onButtonClick={handleBurgerButtonClick}/>)}
-      <Popup isOpened={isPopupOpened} onButtonClick={closePopup}/>
+      <Popup isOpened={popupOpen} onButtonClick={closePopup}/>
       <Switch>
         <Route exact path="/">
           <Main />
@@ -228,7 +228,7 @@ function App() {
             onChangeFilterCheckbox={handleFilterCheckbox}
             onSearshStringChange={handleSearshStringChange}
             searchStringStorage={searchStringStorage}
-            isFilterCheckbox={isFilterCheckbox}
+            isFilterCheckbox={filterCheckbox}
             isErrorSearchMovies={isErrorSearchMovies}
             onDeleteClick={handleDeleteSavedMovie}/>
         <ProtectedRoute path="/saved-movies"
@@ -249,7 +249,7 @@ function App() {
         />
 
         <Route path="/signin">
-          <Login onLogin={handleLogin} isErrorRespose={isErrorRespose}/>
+          <Login onLogin={handleLogin} isErrorRespose={errorRespose}/>
         </Route>
         <Route path="/signup">
           <Register onRegister={handleRegister} isErrorRespose={isErrorResposeRegister}/>
