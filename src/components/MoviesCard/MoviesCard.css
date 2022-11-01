@@ -39,17 +39,17 @@
 .movie-card__like {
     width: 24px;
     height: 24px;
-    background: url(../../images/like.svg);
+    background: url(../../images/like.svg) center no-repeat;
     background-repeat: no-repeat;
     border: none;
 }
 
 .movie-card__like_active {
-    background: url('../../images/like-active.png') center no-repeat;
+    background: url('../../images/like-active.svg') center no-repeat;
 }
 
-.movie-card__button-save_delete {
-    background: url('../../images/movie-card__button-delete-icon.svg') #313131 center no-repeat;
+.movie-card__delete {
+    background: url('../../images/movie-card__button-delete-icon.svg') center no-repeat;
 }
 
 @media screen and (min-width: 768px) {

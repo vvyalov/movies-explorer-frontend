@@ -64,7 +64,7 @@ function Profile({ onOutLogin, onProfileUpdate, isUpdateDone }) {
                     <input className={`profile__info-input profile__info-email ${!emailValid && 'profile__input-error'}`} required type='text' name="email" value={email || ""} onChange={changeEmailProfile} />
                     <span className='profile__info-input-decoration'></span>
                 </label>
-                <div className={`message-error profile__message-error ${!profileFormValidity && 'message-error-visible'}`}>Что-то пошло не так...</div>
+                <div className={`message-error  profile__message-error ${!profileFormValidity && 'message-error-visible'}`}>Что-то пошло не так...</div>
                 <div className={`${isUpdateDone && 'profile__message-update-done-visible'} profile__message-update-done`}>профиль успешно обновлен</div>
             </div>
             <button type="submit" className='link profile__button-edit' disabled={buttonDisabled}>{buttonDisabled ? 'Редактировать' : 'Сохранить'}</button>

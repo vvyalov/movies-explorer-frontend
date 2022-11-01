@@ -125,7 +125,7 @@ function App() {
 
   const handlelikeMovie = (movie) => {
     if (!moviesSaved.some(i => i.movieId === movie.movieId)) {
-      mainApi.getMovies(movie)
+      mainApi.addMovie(movie)
         .then((movieCard) => {
           setMoviesSaved([movieCard, ...moviesSaved])
         })
@@ -134,6 +134,7 @@ function App() {
         });
     }
   };
+
 
   const handleDeletelike = (movie) => {
     const movieDeleted = moviesSaved.find((m) => m.movieId === movie.movieId);

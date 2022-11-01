@@ -61,6 +61,7 @@
 
 .profile__message-error {
     padding-top: 25px;
+    opacity: 0;
 }
 
 .profile__message-update-done {

@@ -63,14 +63,44 @@ class MainApi {
             .then(this._checkResponse)
     }
 
-    getMovies() {
-		return fetch(`${this._baseUrl}/movies`, {
-			method: 'GET',
-			headers: {
-				...this.headers,
-			},
-		}).then(this._checkServerStatus);
-	}
+    addMovie = (movie) => {
+        const {
+            country,
+            director,
+            duration,
+            year,
+            description,
+            image,
+            trailerLink,
+            nameRU,
+            nameEN,
+            thumbnail,
+            movieId,
+        } = movie;
+        return fetch(`${this._baseUrl}/movies`, {
+            method: 'POST',
+            credentials: 'include',
+            headers: {
+                'access-control-request-headers': 'https://kepova.nomoredomains.sbs',
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                country,
+                director,
+                duration,
+                year,
+                description,
+                image,
+                trailerLink,
+                nameRU,
+                nameEN,
+                thumbnail,
+                movieId,
+            })
+        })
+        .then(this._checkResponse)
+    };
+
 
     getSavedMovies = () => {
         return fetch(`${this._baseUrl}/movies`, {
@@ -81,8 +111,8 @@ class MainApi {
             .then(this._checkResponse)
     }
 
-    deleteSavedMovies = (movieDeleteId) => {
-        return fetch(`${this._baseUrl}/movies/${movieDeleteId}`, {
+    deleteSavedMovies = (Id) => {
+        return fetch(`${this._baseUrl}/movies/${Id}`, {
             method: 'DELETE',
             credentials: 'include',
             headers: this._headers,
