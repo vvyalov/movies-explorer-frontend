@@ -178,13 +178,11 @@ function App() {
   const handleSignOut = () => {
     mainApi.outLogin()
       .then((message) => {
+        localStorage.clear();
         console.log(message);
         setLoggedIn(false);
         setCurrentUser({});
-        setMoviesSaved([]);
-        localStorage.removeItem('searchMoviesData');
-        localStorage.removeItem('searchString');
-        localStorage.removeItem('searchFilterCheckbox');
+        setSearchStringStorage('')
         history.push('/');
       })
       .catch((err => {

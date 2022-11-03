@@ -13,7 +13,7 @@ function SearchForm({ isFilterCheckbox, onChangeFilterCheckbox, onSearshStringCh
     },
         [searchStringStorage]
     );
-
+    
     const handleInputChange = useCallback(
         (e) => {
             const { value } = e.target;
@@ -26,7 +26,7 @@ function SearchForm({ isFilterCheckbox, onChangeFilterCheckbox, onSearshStringCh
 
     useEffect(
         function validateInputs() {
-            const isSearchStringFilled = searchString.length > 1;
+            const isSearchStringFilled = searchString.length > 0;
             const isSearchStringValid = isSearchStringFilled;
 
             setSearchStringValid(isSearchStringValid);
@@ -44,7 +44,7 @@ function SearchForm({ isFilterCheckbox, onChangeFilterCheckbox, onSearshStringCh
         <section className='search-form'>
             <form className='search' onSubmit={handleSubmit}>
                 <div className='search-form__container-search'>
-                    <input type='search' required className='search-form__input' placeholder='Фильм' onChange={handleInputChange}></input>
+                    <input type='search' required className='search-form__input' name='searchString' placeholder='Фильм' onChange={handleInputChange} autoFocus value={searchString}/>
                     <span className='search-form__input-decoration'/>
                 </div>
                 <button type='submit' className='link search-form__button' disabled={buttonDisabled}/>
