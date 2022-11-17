@@ -12,91 +12,13 @@ class MainApi {
             return Promise.reject(`Ошибка: ${res.statusText}`)
         }
     }
-
-    register = ({ name, email, password }) => {
-        return fetch(`${this._baseUrl}/signup`, {
-            method: 'POST',
-            headers: this._headers,
-            body: JSON.stringify({ name, email, password })
-        })
-            .then(this._checkResponse)
-    }
-
-    login = ({ email, password }) => {
-        return fetch(`${this._baseUrl}/signin`, {
-            method: 'POST',
-            credentials: 'include',
-            headers: this._headers,
-            body: JSON.stringify({ email, password })
-        })
-            .then(this._checkResponse)
-    }
-
-    outLogin = () => {
-        return fetch(`${this._baseUrl}/signout`, {
-            method: 'GET',
-            credentials: 'include',
-            headers: this._headers,
-        })
-            .then(this._checkResponse)
-    }
-
-    getUser = () => {
-        return fetch(`${this._baseUrl}/users/me`, {
-            method: 'GET',
-            credentials: 'include',
-            headers: this._headers,
-        })
-            .then(this._checkResponse)
-    }
-
-    updateUser = ({ name, email }) => {
-        return fetch(`${this._baseUrl}/users/me`, {
-            method: 'PATCH',
-            credentials: 'include',
-            headers: this._headers,
-            body: JSON.stringify({
-                name,
-                email
-            })
-        })
-            .then(this._checkResponse)
-    }
-
+    
     addMovie = (movie) => {
-        const {
-            country,
-            director,
-            duration,
-            year,
-            description,
-            image,
-            trailerLink,
-            nameRU,
-            nameEN,
-            thumbnail,
-            movieId,
-        } = movie;
         return fetch(`${this._baseUrl}/movies`, {
             method: 'POST',
             credentials: 'include',
-            headers: {
-                'access-control-request-headers': 'https://kepova.nomoredomains.sbs',
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({
-                country,
-                director,
-                duration,
-                year,
-                description,
-                image,
-                trailerLink,
-                nameRU,
-                nameEN,
-                thumbnail,
-                movieId,
-            })
+            headers: this._headers,
+            body: JSON.stringify(movie)
         })
         .then(this._checkResponse)
     };

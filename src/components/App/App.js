@@ -2,6 +2,7 @@ import React, { useState, useEffect  } from 'react';
 import { Route, Switch, useHistory, useRouteMatch } from 'react-router-dom';
 import { getAllMovies } from '../../utils/MoviesApi';
 import { mainApi } from '../../utils/MainApi';
+import { userApi } from '../../utils/UserApi';
 import { CurrentUserContext } from '../../contexts/CurrentUserContext'
 import Main from '../Main/Main';
 import Movies from '../Movies/Movies';
@@ -23,7 +24,7 @@ function App() {
   const [allMovies, setAllMovies] = useState([]);
   const [searchStringStorage, setSearchStringStorage] = useState('');
   const [filterCheckbox, setFilterCheckbox] = useState(false);
-  const [notFirstSearch, setNotFirstSearch] = useState(false);
+  const [isShortFilm, setisShortFilm] = useState(false);
   const [isErrorSearchMovies, setIsErrorSearchMovies] = useState(false);
   const [errorRespose, setErrorResponse] = useState(null);
   const [isErrorResposeRegister, setIsErrorResponseRegister] = useState(null);
@@ -36,7 +37,7 @@ function App() {
 	];
 
   useEffect(() => {
-    mainApi.getUser()
+    userApi.getUser()
       .then((userData) => {
         if (userData) {
           setLoggedIn(true);
@@ -49,7 +50,7 @@ function App() {
   
   useEffect(() => {
     if (loggedIn) {
-      Promise.all([mainApi.getUser(), mainApi.getSavedMovies()])
+      Promise.all([userApi.getUser(), mainApi.getSavedMovies()])
         .then(([userData, dataSavedMovies]) => {
           console.log(loggedIn, currentUser)
           if (userData) {
@@ -67,7 +68,7 @@ function App() {
 
   useEffect(() => {
     if (!localStorage.searchMoviesData) {
-      setNotFirstSearch(true);
+      setisShortFilm(true);
       setAllMovies([]);
     } else {
       setAllMovies(JSON.parse(localStorage.searchMoviesData));
@@ -76,9 +77,9 @@ function App() {
     }
   }, []);
 
-  const handleFilterCheckbox = (isChecked) => {
-    setFilterCheckbox(isChecked);
-    localStorage.setItem('searchFilterCheckbox', JSON.stringify(isChecked));
+  const handleFilterCheckbox = (сhecked) => {
+    setFilterCheckbox(сhecked);
+    localStorage.setItem('searchFilterCheckbox', JSON.stringify(сhecked));
   };
 
   const handleSearshStringChange = (searchString) => {
@@ -99,7 +100,7 @@ function App() {
       .then((preMoviesData) => {
         const moviesData = preMoviesData.map((movie) => {
           return {
-            nameRU: movie.nameRU,
+            nameRU: movie.nameRU || '_',
             image: `https://api.nomoreparties.co/${movie.image.url}`,
             trailerLink: movie.trailerLink,
             duration: movie.duration,
@@ -108,13 +109,13 @@ function App() {
             director: movie.director,
             year: movie.year,
             description: movie.description,
-            nameEN: movie.nameEN,
+            nameEN: movie.nameEN || '_',
             thumbnail: `https://api.nomoreparties.co/${movie.image.formats.thumbnail.url}`,
           };
         })
         localStorage.setItem('searchMoviesData', JSON.stringify(moviesData));
         setAllMovies(moviesData);
-        setNotFirstSearch(false);
+        setisShortFilm(false);
       })
       .catch(err => {
         console.log(err);
@@ -134,7 +135,7 @@ function App() {
         });
     }
   };
-
+  
 
   const handleDeletelike = (movie) => {
     const movieDeleted = moviesSaved.find((m) => m.movieId === movie.movieId);
@@ -148,7 +149,7 @@ function App() {
   };
 
   const handleRegister = ({ name, email, password }) => {
-    mainApi.register({ name, email, password })
+    userApi.register({ name, email, password })
       .then((dataUser) => {
         if (dataUser) {
           console.log(dataUser)
@@ -162,7 +163,7 @@ function App() {
   };
 
   const handleLogin = ({ email, password }) => {
-    mainApi.login({ email, password })
+    userApi.login({ email, password })
       .then((res) => {
           localStorage.setItem('jwt', res.token);
           setLoggedIn(true);
@@ -176,7 +177,7 @@ function App() {
   };
 
   const handleSignOut = () => {
-    mainApi.outLogin()
+    userApi.outLogin()
       .then((message) => {
         localStorage.clear();
         console.log(message);
@@ -191,7 +192,7 @@ function App() {
   };
 
   const handleProfileUpdate = ({ name, email }) => {
-    mainApi.updateUser({ name, email })
+    userApi.updateUser({ name, email })
       .then((newUserData) => {
         setCurrentUser(newUserData);
         setIsUpdateDone(true);
@@ -220,7 +221,7 @@ function App() {
             loggedIn={loggedIn}
             component={Movies}
             movies={allMovies}
-            notFirstSearch={notFirstSearch}
+            notFirstSearch={isShortFilm}
             handleSaveAllMovies={handleSaveAllMovies}
             moviesSaved={moviesSaved}
             onLikeMovieClick={handlelikeMovie}
@@ -253,7 +254,7 @@ function App() {
         <Route path="/signup">
           <Register onRegister={handleRegister} isErrorRespose={isErrorResposeRegister}/>
         </Route>
-        <Route path="*">
+        <Route path="/404">
           <NotFoundPage />
         </Route>
       </Switch>
