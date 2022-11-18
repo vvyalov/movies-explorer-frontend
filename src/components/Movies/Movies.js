@@ -1,13 +1,52 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import SearchForm from '../SearchForm/SearchForm';
 import MoviesCardList from '../MoviesCardList/MoviesCardList';
+import { filteredMovies } from '../../utils/FilteredMovies';
 
-function Movies({ isNextMovie }) {
-    isNextMovie = true;
+function Movies({ movies, isShortFilm, handleSaveAllMovies, moviesSaved, onLikeMovieClick, onChangeFilterCheckbox, onSearshStringChange, isFilterCheckbox,
+    searchString, searchStringStorage, isErrorSearchMovies, onDeleteClick }) {
+
+    const [isNotFoundMovies, setIsNotFoundMovies] = useState(false);
+    const [moviesElements, setMoviesElemenets] = useState(movies);
+    const [isPreloader, setIsPreloader] = useState(false);
+
+    useEffect(() => {
+        if (!isShortFilm) {
+            handleMoviesSearch(searchStringStorage);
+        }
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [isFilterCheckbox, movies]);
+
+    const handleMoviesSearch = () => {
+        setIsPreloader(true);
+        if (isShortFilm) {
+            return handleSaveAllMovies();
+        }
+        const moviesFiltered = filteredMovies({ searchString: searchStringStorage, movies, isFilterCheckbox });
+        setIsNotFoundMovies(moviesFiltered.length < 1);
+        setMoviesElemenets(moviesFiltered);
+        setIsPreloader(false);
+    };
+
+
     return (
         <section className='content movies'>
-            <SearchForm />
-            <MoviesCardList isNextMovie={isNextMovie} />
+            <SearchForm
+                onMoviesSearch={handleMoviesSearch}
+                onChangeFilterCheckbox={onChangeFilterCheckbox}
+                onSearshStringChange={onSearshStringChange}
+                isFilterCheckbox={isFilterCheckbox}
+                searchString={searchString}
+                searchStringStorage={searchStringStorage} />
+            <MoviesCardList
+                movies={moviesElements}
+                moviesSaved={moviesSaved}
+                keyMovie={'movieId'}
+                onLikeMovieClick={onLikeMovieClick}
+                isPreloader={isPreloader}
+                isNotFoundMovies={isNotFoundMovies}
+                isErrorSearchMovies={isErrorSearchMovies}
+                onDeleteClick={onDeleteClick} />
         </section>
     )
 };

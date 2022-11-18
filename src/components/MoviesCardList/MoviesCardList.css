@@ -18,6 +18,14 @@
     padding-top: 50px;
 }
 
+.movie-card-list__not-found-movies {
+    color: #fff;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 1.2;
+    text-align: center;
+}
+
 .movie-card-list__open-next-movies-button {
     width: 25vw;
     height: 36px;

@@ -1,43 +1,43 @@
 import React from 'react';
 
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 function Navigation() {
   return (
     <nav className="nav">
       <ul className="nav__links">
         <li className="nav__links-item">
-          <Link
+          <NavLink
             to="/"
             className="nav__link nav__link_main"
             >
             Главная
-          </Link>
+          </NavLink>
         </li>
         <li className="nav__links-item">
-          <Link
+          <NavLink
             to="/movies"
             className="nav__link nav__link_movies"
           >
           Фильмы
-          </Link>
+          </NavLink>
         </li>
         <li className="nav__links-item">
-          <Link
+          <NavLink
             to="/saved-movies"
             className="nav__link nav__link_saved-movies"
           >
             Сохраненные фильмы
-          </Link>
+          </NavLink>
           
         </li>
       </ul>
-      <Link
+      <NavLink
         to="/profile"
         className="nav__link nav__link_profile"
       >
         Аккаунт
-      </Link>
+      </NavLink>
     </nav>
   );
 };
